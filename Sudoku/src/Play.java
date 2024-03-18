@@ -5,12 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Play extends JFrame {
-	private JButton startButton, startButton2;
+	private JButton startButton, startButton2, quitButton;
     public Play() {
         setTitle("Sudoku Game Menu");
-        setSize(400, 400);
+        setSize(400, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new GridLayout(2, 4));
+        setLayout(new GridLayout(1, 3));
      // Create Start button
         startButton = new JButton("Start Easy");
         startButton.addActionListener(new ActionListener() {
@@ -28,6 +28,15 @@ public class Play extends JFrame {
             }
         });
         add(startButton2);
+        
+     // Create Quit button
+        quitButton = new JButton("Quit");
+        quitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose(); // Close the window
+            }
+        });
+        add(quitButton);
     }
 
     private void startGame(int x) {
@@ -40,7 +49,11 @@ public class Play extends JFrame {
     	}
     	else if(x==1) {
             JOptionPane.showMessageDialog(Play.this, "Under Development, Try Easy Mode");
-
+            Main main = new Main();
+            SwingUtilities.invokeLater(() -> {
+                new MediumGrid(main.getMediumBoard());
+            });
+            main.Start();
     	}
     }
 }

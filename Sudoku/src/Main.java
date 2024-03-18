@@ -70,10 +70,10 @@ public class Main {
 	}
 	
 	public void Start() {
-		for (int i = 1; i < 17; i++) {
-			int val = (int) (Math.random() * 4) + 1;
-	        setCell(i,val);
-		}
+//		for (int i = 1; i < 17; i++) {
+//			int val = (int) (Math.random() * 4) + 1;
+//	        setCell(i,val);
+//		}
 		
 		//Find four cells to be fixed every game
 		int cell2, cell1, cell3, cell4;
