@@ -16,6 +16,12 @@ public class Game {
 		if(!validBox()) return false;
 		return true;
 	}
+	public String checkGameRules() {
+		if(!gameRules())
+			return "Failed, Try Again!";
+		
+			return "You Won";
+	}
 	
 	public boolean validRow() {
 		//Row 1: 
