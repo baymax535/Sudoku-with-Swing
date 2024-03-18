@@ -1,9 +1,10 @@
 
 public class Game {
 	
-	Main main = new Main();
-	int [][] board = main.getBoard();
-	
+	Main main;
+    public Game(Main main) {
+        this.main = main;
+    }
 	public boolean gameRules() {
 		//Values are between one and four
 		if(!validValues()) return false;
@@ -113,25 +114,10 @@ public class Game {
 	}
 	
 	public boolean validValues() {
-		if (main.getCell(1) < 1 || main.getCell(1) > 4) return false;
-		if (main.getCell(2) < 1 || main.getCell(2) > 4) return false;
-		if (main.getCell(3) < 1 || main.getCell(3) > 4) return false;
-		if (main.getCell(4) < 1 || main.getCell(4) > 4) return false;
-		if (main.getCell(5) < 1 || main.getCell(5) > 4) return false;
-		if (main.getCell(6) < 1 || main.getCell(6) > 4) return false;
-		if (main.getCell(7) < 1 || main.getCell(7) > 4) return false;
-		if (main.getCell(8) < 1 || main.getCell(8) > 4) return false;
-		if (main.getCell(9) < 1 || main.getCell(9) > 4) return false;
-		if (main.getCell(10) < 1 || main.getCell(10) > 4) return false;
-		if (main.getCell(11) < 1 || main.getCell(11) > 4) return false;
-		if (main.getCell(12) < 1 || main.getCell(12) > 4) return false;
-		if (main.getCell(13) < 1 || main.getCell(13) > 4) return false;
-		if (main.getCell(14) < 1 || main.getCell(14) > 4) return false;
-		if (main.getCell(15) < 1 || main.getCell(15) > 4) return false;
-		if (main.getCell(16) < 1 || main.getCell(16) > 4) return false;
+		for(int i = 1; i<17; i++) {
+			if (main.getCell(i) < 1 || main.getCell(i) > 4) return false;
+		}
 		return true;
 	}
-	
-	
 		
 }
