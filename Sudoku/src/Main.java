@@ -7,12 +7,11 @@ public class Main {
 	private boolean[] isFinal;
 		
 	public static void main (String[] args) {
-		Main main = new Main();
-		main.Start();
 		SwingUtilities.invokeLater(() -> {
-            new Grid(main.getBoard());
+            new Play().setVisible(true);
         });
 	}
+	
 	//default constructor
 	public Main(){
 		gg = (int) (Math.random() * 4) + 1;

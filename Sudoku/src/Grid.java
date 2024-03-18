@@ -18,7 +18,6 @@ public class Grid extends JFrame{
 	public Grid(int board[][]) {
 		main = new Main(); // Create instance of Main class
         myGame = new Game(main); // Create instance of Game class with Main instance
-        main.Start();
         setTitle("Sudoku Game");
         setSize(400, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -34,7 +33,7 @@ public class Grid extends JFrame{
             }
         }
      // Create Start button
-        startButton = new JButton("Start");
+        startButton = new JButton("Random");
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 main.Start();
