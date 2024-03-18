@@ -8,15 +8,10 @@ public class Main {
 		
 	public static void main (String[] args) {
 		Main main = new Main();
-		Game myGame = new Game(main);
 		main.Start();
 		SwingUtilities.invokeLater(() -> {
             new Grid(main.getBoard());
         });
-		if(!myGame.gameRules()) {
-			System.out.println("Failed, Try Again!");
-		}
-		else System.out.println("You Won!");
 	}
 	//default constructor
 	public Main(){
@@ -36,6 +31,15 @@ public class Main {
 	//Getter for Board
 	public int[][] getBoard() {
 		return this.board;
+	}
+	//Setter for Board
+	public void setBoard() {
+		this.board = new int[][] {
+            {2, 1, 3, 4},
+            {4, 3, 2, 1},
+            {1, 2, 4, 3},
+            {3, 4, 1, 2}
+		};
 	}
 	//Getter for each cell
 	public int getCell(int n) {

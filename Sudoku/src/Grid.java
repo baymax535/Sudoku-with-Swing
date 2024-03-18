@@ -1,12 +1,17 @@
 import javax.swing.*;
-import javax.swing.border.*;
+//import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
 
 public class Grid extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8885100601854879830L;
+	
 	private JTextField[][] grid;
-    private JButton doneButton, startButton;
+    private JButton doneButton, startButton, cheatButton, quitButton;
     private Main main;
     private Game myGame;
 
@@ -37,7 +42,8 @@ public class Grid extends JFrame{
             }
         });
         add(startButton);
-        //DONE button
+        
+     // Done button
         doneButton = new JButton("Done");
         doneButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -50,15 +56,36 @@ public class Grid extends JFrame{
                 if (!gameResult) {
                     JOptionPane.showMessageDialog(Grid.this, "Failed, Try Again!");
                 } else {
-                    JOptionPane.showMessageDialog(Grid.this, "You Won!");
+                    JOptionPane.showMessageDialog(Grid.this, "Solved!");
                 }
             }
         });
         add(doneButton);
         
+     // Create Cheat button
+        cheatButton = new JButton("Cheat");
+        cheatButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                main.setBoard(); //Cheat button to check work is working
+                updateGrid();
+            }
+        });
+        add(cheatButton);
+        
+     // Create Quit button
+        quitButton = new JButton("Quit");
+        quitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose(); // Close the window
+            }
+        });
+        add(quitButton);
+        
         setVisible(true);
 	}
-	
+	/**
+	 * Update Grid after making changes in the Board.
+	 */
 	private void updateGrid() {
         int[][] newBoard = main.getBoard();
         for (int i = 0; i < 4; i++) {
@@ -67,19 +94,22 @@ public class Grid extends JFrame{
             }
         }
     }
-	 private void applyChanges() {
-	        for (int i = 0; i < 4; i++) {
-	            for (int j = 0; j < 4; j++) {
-	                String input = grid[i][j].getText();
-	                if (!input.isEmpty()) {
-	                    try {
-	                        int newValue = Integer.parseInt(input);
-	                        main.setCell(i*4+j+1, newValue);
-	                    } catch (NumberFormatException ex) {
-	                        JOptionPane.showMessageDialog(Grid.this, "Invalid input! Please enter a number.");
-	                    }
-	                }
-	            }
-	        }
-	    }
+	/**
+	 * Update Board after making changes in the Grid.
+	 */
+	private void applyChanges() {
+		 for (int i = 0; i < 4; i++) {
+			 for (int j = 0; j < 4; j++) {
+				 String input = grid[i][j].getText();
+				 if (!input.isEmpty()) {
+					 try {
+				 		int newValue = Integer.parseInt(input);
+	                    main.setCell(i*4+j+1, newValue);
+	                 } catch (NumberFormatException ex) {
+	                    JOptionPane.showMessageDialog(Grid.this, "Invalid input! Please enter a number.");
+	                 }
+	             }
+			 }
+		 }
+	}
 }
