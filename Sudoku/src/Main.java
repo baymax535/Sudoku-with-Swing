@@ -1,26 +1,31 @@
 import javax.swing.*;
 
 public class Main {
-
+	
+	private int [][] board;
+	private int aa=1,ab=2,ac=3,ad=4,
+				ba=4,bb=3,bc=2,bd=1,
+				ca=3,cb=4,cc=1,cd=2,
+				da=2,db=1,dc=4,dd=3;	
 	public static void main (String[] args) {
-		int aa=1,ab=2,ac=3,ad=4,
-			ba=5,bb=6,bc=7,bd=8,
-			ca=9,cb=10,cc=11,cd=12,
-			da=13,db=14,dc=15,dd=16;
-		
-		int [][] board = {
-						  {aa},{ab},{ac},{ad},
-						  {ba},{bb},{bc},{bd},
-						  {ca},{cb},{cc},{cd},
-						  {da},{db},{dc},{dd}
-						 };
-		for (int i = 0; i<board.length; i++) {
-			System.out.println(board[i][0]);
-
-		}
+		Main main = new Main();
 		SwingUtilities.invokeLater(() -> {
-            new Grid();
+            new Grid(main.getBoard());
         });
 	}
 	
+	public Main(){
+		
+		this.board = new int[][] {
+				  {aa, ab, ac, ad},
+				  {ba, bb, bc, bd},
+				  {ca, cb, cc, cd},
+				  {da, db, dc, dd}
+		};
+	}
+	
+	public int[][] getBoard() {
+		return this.board;
+	}
 }
+
