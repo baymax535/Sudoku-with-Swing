@@ -45,11 +45,11 @@ public class Main {
 	}
 	//Setter for each cell
 	public void setCell(int n, int value) {
-		if(!isFinal[n]) {
+//		if(!isFinal[n]) {
 		    int row = (n - 1) / 4;  // Calculate row index from n
 		    int col = (n - 1) % 4;  // Calculate column index from n
 		    board[row][col] = value;
-		}
+//		}
 	}
 	
 	public void Start() {
