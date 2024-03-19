@@ -10,7 +10,7 @@ public class Main {
         });
 	}
 	
-	//default constructor
+//	//default constructor
 	public Main(){
 		this.board = new int[][] {
              {0, 0, 0, 0},
@@ -18,6 +18,14 @@ public class Main {
              {0, 0, 0, 0},
              {0, 0, 0, 0}
 		};
+	}
+	public Main(int x){
+		if(x==0) {
+			this.board = new int[4][4];
+		}
+		else if(x==1) {
+			this.board = new int[9][9];
+		}
 	}
 	
 	//Getter for Board

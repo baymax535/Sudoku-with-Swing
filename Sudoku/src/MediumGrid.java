@@ -16,7 +16,7 @@ public class MediumGrid extends JFrame{
     private Game myGame;
 
 	public MediumGrid(int board[][]) {
-		main = new Main(); // Create instance of Main class
+		main = new Main(1); // Create instance of Main class
         myGame = new Game(main); // Create instance of Game class with Main instance
         setTitle("Sudoku Game");
         setSize(700, 800);
@@ -49,7 +49,7 @@ public class MediumGrid extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 applyChanges(); // Update the main board with user inputs
                 System.out.println(myGame.checkGameRules());
-                for(int i = 1;i<17; i++) {
+                for(int i = 1;i<82; i++) {
                 	System.out.println(main.getCell(i));
                 }
                 boolean gameResult = myGame.gameRules();
@@ -98,13 +98,13 @@ public class MediumGrid extends JFrame{
 	 * Update Board after making changes in the Grid.
 	 */
 	private void applyChanges() {
-		 for (int i = 0; i < 4; i++) {
-			 for (int j = 0; j < 4; j++) {
+		 for (int i = 0; i < 9; i++) {
+			 for (int j = 0; j < 9; j++) {
 				 String input = grid[i][j].getText();
 				 if (!input.isEmpty()) {
 					 try {
 				 		int newValue = Integer.parseInt(input);
-	                    main.setCell(i*4+j+1, newValue);
+	                    main.setCell(i*9+j+1, newValue);
 	                 } catch (NumberFormatException ex) {
 	                    JOptionPane.showMessageDialog(MediumGrid.this, "Invalid input! Please enter a number.");
 	                 }

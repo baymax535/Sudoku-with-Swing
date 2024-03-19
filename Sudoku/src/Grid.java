@@ -16,7 +16,7 @@ public class Grid extends JFrame{
     private Game myGame;
 
 	public Grid(int board[][]) {
-		main = new Main(); // Create instance of Main class
+		main = new Main(0); // Create instance of Main class
         myGame = new Game(main); // Create instance of Game class with Main instance
         setTitle("Sudoku Game");
         setSize(400, 500);
@@ -32,25 +32,14 @@ public class Grid extends JFrame{
                 add(grid[i][j]);
             }
         }
-        grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-
+        setBoard();
         
      // Create Start button
         startButton = new JButton("Random");
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 main.Start();
-                resetBoard();
-            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
-
+                setBoard();
                 updateGrid();
             }
         });
@@ -99,12 +88,28 @@ public class Grid extends JFrame{
 	/**
 	 * Reset Board
 	 */
-	private void resetBoard() {
+	private void setBoard() {
 		for (int i = 0; i < 4; i++) {
             for (int j = 0; j <4; j++) {
             	grid[i][j].setEditable(true);
             }
         }
+		int a, b;
+		for (int i =0; i<5;i++) {
+			a = (int) ((Math.random() * 4));
+			b = (int) ((Math.random() * 4));
+			grid[a][b].setEditable(false);
+		}
+		
+		for (int i = 0; i < 4; i++) {
+            for (int j = 0; j <4; j++) {
+            	if(grid[i][j].isEditable()) {
+                    main.setCell(i*4+j+1, 0);
+            	}
+            }
+        }
+		
+
 	}
 	/**
 	 * Update Grid after making changes in the Board.
