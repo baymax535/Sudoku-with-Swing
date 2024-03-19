@@ -5,29 +5,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Play extends JFrame {
-	private JButton startButton, startButton2, quitButton;
+	private JButton startEasyButton, startMediumButton, quitButton;
     public Play() {
         setTitle("Sudoku Game Menu");
         setSize(400, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new GridLayout(1, 3));
      // Create Start button
-        startButton = new JButton("Start Easy");
-        startButton.addActionListener(new ActionListener() {
+        startEasyButton = new JButton("Start Easy");
+        startEasyButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startGame(0);
             }
         });
-        add(startButton);
+        add(startEasyButton);
         
      // Create Start button
-        startButton2 = new JButton("Start Medium");
-        startButton2.addActionListener(new ActionListener() {
+        startMediumButton = new JButton("Start Medium");
+        startMediumButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startGame(1);
             }
         });
-        add(startButton2);
+        add(startMediumButton);
         
      // Create Quit button
         quitButton = new JButton("Quit");

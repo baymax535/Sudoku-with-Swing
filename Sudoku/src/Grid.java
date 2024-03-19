@@ -32,11 +32,25 @@ public class Grid extends JFrame{
                 add(grid[i][j]);
             }
         }
+        grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+    	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+
+        
      // Create Start button
         startButton = new JButton("Random");
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 main.Start();
+                resetBoard();
+            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+            	grid[(int) ((Math.random() * 4))][(int) ((Math.random() * 4))].setEditable(false);
+
                 updateGrid();
             }
         });
@@ -81,6 +95,16 @@ public class Grid extends JFrame{
         add(quitButton);
         
         setVisible(true);
+	}
+	/**
+	 * Reset Board
+	 */
+	private void resetBoard() {
+		for (int i = 0; i < 4; i++) {
+            for (int j = 0; j <4; j++) {
+            	grid[i][j].setEditable(true);
+            }
+        }
 	}
 	/**
 	 * Update Grid after making changes in the Board.
