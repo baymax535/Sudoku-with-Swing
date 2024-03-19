@@ -7,13 +7,13 @@ public class Game {
     }
 	public boolean gameRules() {
 		//Values are between one and four
-		if(!validValues()) return false;
+		if(!isValidValues()) return false;
 		//Horizontally Different Values
-		if(!validRow()) return false;
+		if(!isValidRow()) return false;
 		//Vertically Different Values
-		if(!validColumn()) return false;
+		if(!isValidColumn()) return false;
 		//Square Different Values
-		if(!validBox()) return false;
+		if(!isValidBox()) return false;
 		return true;
 	}
 	public String checkGameRules() {
@@ -22,19 +22,43 @@ public class Game {
 		
 			return "You Won";
 	}
-	public boolean validRow(int row) {
+	public boolean isValid(int x) {
 		int i =0,j=0,k=0,l=0;
-		if(row == 1) {
+		if(x == 1) {
 			i = 1; j = 2; k = 3; l =4;
 		}
-		if(row == 2) {
+		if(x == 2) {
 			i = 5; j = 6; k = 7; l =8;
 		}
-		if(row == 3) {
+		if(x == 3) {
 			i = 9; j = 10; k = 11; l =12;
 		}
-		if(row == 4) {
+		if(x == 4) {
 			i = 13; j = 14; k = 15; l =16;
+		}
+		if(x == 5) {
+			i = 1; j = 5; k = 9; l =13;
+		}
+		if(x == 6) {
+			i = 2; j = 6; k = 10; l =14;
+		}
+		if(x == 7) {
+			i = 3; j = 7; k = 11; l =15;
+		}
+		if(x == 8) {
+			i = 4; j = 8; k = 12; l =16;
+		}
+		if(x == 9) {
+			i = 1; j = 2; k = 5; l =6;
+		}
+		if(x == 10) {
+			i = 3; j = 4; k = 7; l =8;
+		}
+		if(x == 11) {
+			i = 9; j = 10; k = 13; l =14;
+		}
+		if(x == 12) {
+			i = 11; j = 12; k = 15; l =16;
 		}
 		if(main.getCell(i)==main.getCell(j)) return false;
 		if(main.getCell(i)==main.getCell(k)) return false;
@@ -44,83 +68,100 @@ public class Game {
 		if(main.getCell(k)==main.getCell(l)) return false;
 		return true;
 	}
-	public boolean validRow() {
-		//Row 1: 
-		if(!validRow(1)) return false;
-		//Row 2:
-		if(!validRow(2)) return false;
-		//Row 3:
-		if(!validRow(3)) return false;
-		//Row 4: 
-		if(!validRow(4)) return false;
+	
+	public boolean isValid(int c1, int c2) {
+		int i =0,j=0,k=0,l=0;
+		for(int x = 1; x<13;x++) {
+			
+			if(x == 1) {
+				i = 1; j = 2; k = 3; l =4;
+			}
+			if(x == 2) {
+				i = 5; j = 6; k = 7; l =8;
+			}
+			if(x == 3) {
+				i = 9; j = 10; k = 11; l =12;
+			}
+			if(x == 4) {
+				i = 13; j = 14; k = 15; l =16;
+			}
+			if(x == 5) {
+				i = 1; j = 5; k = 9; l =13;
+			}
+			if(x == 6) {
+				i = 2; j = 6; k = 10; l =14;
+			}
+			if(x == 7) {
+				i = 3; j = 7; k = 11; l =15;
+			}
+			if(x == 8) {
+				i = 4; j = 8; k = 12; l =16;
+			}
+			if(x == 9) {
+				i = 1; j = 2; k = 5; l =6;
+			}
+			if(x == 10) {
+				i = 3; j = 4; k = 7; l =8;
+			}
+			if(x == 11) {
+				i = 9; j = 10; k = 13; l =14;
+			}
+			if(x == 12) {
+				i = 11; j = 12; k = 15; l =16;
+			}
+			if(c1!=c2&&
+					(c1==i||c1==j||c1==k||c1==l)&&
+					(c2==i||c2==j||c2==k||c2==l)) {
+				if(main.getCell(c1)==main.getCell(c2)) return false;
+			}
+		}
+		
 		return true;
 	}
-	public boolean validColumn() {
+	public boolean isValidRow() {
+		//Row 1: 
+		if(!isValid(1)) return false;
+		//Row 2:
+		if(!isValid(2)) return false;
+		//Row 3:
+		if(!isValid(3)) return false;
+		//Row 4: 
+		if(!isValid(4)) return false;
+		return true;
+	}
+	public boolean isValidColumn() {
 		//Column 1: 
-		if(main.getCell(1)==main.getCell(5)) return false;
-		if(main.getCell(1)==main.getCell(9)) return false;
-		if(main.getCell(1)==main.getCell(13)) return false;
-		if(main.getCell(5)==main.getCell(9)) return false;
-		if(main.getCell(5)==main.getCell(13)) return false;
-		if(main.getCell(9)==main.getCell(13)) return false;
+		if(!isValid(5)) return false;
+
 		//Column 2:
-		if(main.getCell(2)==main.getCell(6)) return false;
-		if(main.getCell(2)==main.getCell(10)) return false;
-		if(main.getCell(2)==main.getCell(14)) return false;
-		if(main.getCell(6)==main.getCell(10)) return false;
-		if(main.getCell(6)==main.getCell(14)) return false;
-		if(main.getCell(10)==main.getCell(14)) return false;
+		if(!isValid(6)) return false;
+
 		//Column 3:
-		if(main.getCell(3)==main.getCell(7)) return false;
-		if(main.getCell(3)==main.getCell(11)) return false;
-		if(main.getCell(3)==main.getCell(15)) return false;
-		if(main.getCell(7)==main.getCell(11)) return false;
-		if(main.getCell(7)==main.getCell(15)) return false;
-		if(main.getCell(11)==main.getCell(15)) return false;
+		if(!isValid(7)) return false;
+
 		//Column 4: 
-		if(main.getCell(4)==main.getCell(8)) return false;
-		if(main.getCell(4)==main.getCell(12)) return false;
-		if(main.getCell(4)==main.getCell(16)) return false;
-		if(main.getCell(8)==main.getCell(12)) return false;
-		if(main.getCell(8)==main.getCell(16)) return false;
-		if(main.getCell(12)==main.getCell(16)) return false;
+		if(!isValid(8)) return false;
 
 		return true;
 	}
 	
-	public boolean validBox() {
+	public boolean isValidBox() {
 		//Box 1: 
-		if(main.getCell(1)==main.getCell(2)) return false;
-		if(main.getCell(1)==main.getCell(5)) return false;
-		if(main.getCell(1)==main.getCell(6)) return false;
-		if(main.getCell(2)==main.getCell(5)) return false;
-		if(main.getCell(2)==main.getCell(6)) return false;
-		if(main.getCell(5)==main.getCell(6)) return false;
+		if(!isValid(9)) return false;
+
 		//Box 2:
-		if(main.getCell(3)==main.getCell(4)) return false;
-		if(main.getCell(3)==main.getCell(7)) return false;
-		if(main.getCell(3)==main.getCell(8)) return false;
-		if(main.getCell(4)==main.getCell(7)) return false;
-		if(main.getCell(4)==main.getCell(8)) return false;
-		if(main.getCell(7)==main.getCell(8)) return false;
+		if(!isValid(10)) return false;
+
 		//Box 3:
-		if(main.getCell(9)==main.getCell(10)) return false;
-		if(main.getCell(9)==main.getCell(13)) return false;
-		if(main.getCell(9)==main.getCell(14)) return false;
-		if(main.getCell(10)==main.getCell(13)) return false;
-		if(main.getCell(10)==main.getCell(14)) return false;
-		if(main.getCell(13)==main.getCell(14)) return false;
+		if(!isValid(11)) return false;
+
 		//Box 4: 
-		if(main.getCell(11)==main.getCell(12)) return false;
-		if(main.getCell(11)==main.getCell(15)) return false;
-		if(main.getCell(11)==main.getCell(16)) return false;
-		if(main.getCell(12)==main.getCell(15)) return false;
-		if(main.getCell(12)==main.getCell(16)) return false;
-		if(main.getCell(15)==main.getCell(16)) return false;
+		if(!isValid(12)) return false;
+
 		return true;
 	}
 	
-	public boolean validValues() {
+	public boolean isValidValues() {
 		for(int i = 1; i<17; i++) {
 			if (main.getCell(i) < 1 || main.getCell(i) > 4) return false;
 		}

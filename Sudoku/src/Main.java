@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Main {
 	
 	private int [][] board;
-		
+	private Game myGame;	
 	public static void main (String[] args) {
 		SwingUtilities.invokeLater(() -> {
             new Play().setVisible(true);

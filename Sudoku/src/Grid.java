@@ -100,7 +100,12 @@ public class Grid extends JFrame{
 			b = (int) ((Math.random() * 4));
 			grid[a][b].setEditable(false);
 		}
-		
+//		while((myGame.gameRules())) {
+//			for (int i = 1; i < 17; i++) {
+//				int val = (int) (Math.random() * 4) + 1;
+//		        main.setCell(i,val);
+//			}
+//		}
 		for (int i = 0; i < 4; i++) {
             for (int j = 0; j <4; j++) {
             	if(grid[i][j].isEditable()) {
