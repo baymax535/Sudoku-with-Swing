@@ -9,6 +9,7 @@ public class Main {
 	
 	private int [][] board;
 	private Game myGame;	
+	private Grid easyGrid;
 	public static void main (String[] args) {
 		SwingUtilities.invokeLater(() -> {
             new Play().setVisible(true);
@@ -78,6 +79,22 @@ public class Main {
 			int val = (int) (Math.random() * 4) + 1;
 	        setCell(i,val);
 		}
+		int a, b;
+//		if(easyGrid != null) {
+//		for (int i =0; i<5;i++) {
+//			a = (int) ((Math.random() * 4));
+//			b = (int) ((Math.random() * 4));
+//			easyGrid.setEditable(a, b, false);
+//		}
+//
+//		for (int i = 0; i < 4; i++) {
+//            for (int j = 0; j <4; j++) {
+//            	if(easyGrid.isEditable(i,j)) {
+//                    setCell(i*4+j+1, 0);
+//            	}
+//            }
+//        }
+//		}
 	}
 }
 
