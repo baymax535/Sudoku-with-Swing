@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @author labib
+ * Class for game rules!
+ * 
+ */
 public class Game {
 	
 	Main main;

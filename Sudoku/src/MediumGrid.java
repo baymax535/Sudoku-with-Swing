@@ -3,6 +3,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * 
+ * @author labib
+ * Board for the Medium mode 9x9
+ * 
+ */
 
 public class MediumGrid extends JFrame{
 	/**

@@ -2,7 +2,11 @@ import javax.swing.*;
 //import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
-
+/**
+ * 
+ * @author labib
+ * Board for the Easy mode 4x4
+ */
 
 public class Grid extends JFrame{
 	/**

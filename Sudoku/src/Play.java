@@ -3,7 +3,12 @@ import javax.swing.*;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * 
+ * @author labib
+ * Class For Menu and Modes
+ * 
+ */
 public class Play extends JFrame {
 	private JButton startEasyButton, startMediumButton, quitButton;
     public Play() {

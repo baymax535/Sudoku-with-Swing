@@ -1,5 +1,10 @@
 import javax.swing.*;
-
+/**
+ * 
+ * @author labib
+ * Main class to run Game
+ * 
+ */
 public class Main {
 	
 	private int [][] board;
